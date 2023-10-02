@@ -1,6 +1,7 @@
 import {useState,useEffect}from 'react'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Header from './Header';
 const ProtectedScreen = ({children}) => {
     const navigate = useNavigate();
    const [user, setUser] = useState('')
@@ -30,11 +31,14 @@ const ProtectedScreen = ({children}) => {
      },[])
 
   return (
-    <div>
-        
-        {user && <div>{children}</div>}
-    </div>
-  )
+   user && (
+      <div>
+       <Header />
+         <div>
+            {children}
+         </div>
+      </div>
+   ) )
 }
 
 export default ProtectedScreen
