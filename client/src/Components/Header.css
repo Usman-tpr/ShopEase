@@ -1,0 +1,16 @@
+.header{
+    background-color: var(--theme-color);
+    color: white;
+}
+.header img {
+    width: 100px;
+    color: white;
+}
+.nav-items a{
+    color: white;
+    text-decoration: none;
+    
+}
+.nav-items{
+    font-size: 20px;
+}
