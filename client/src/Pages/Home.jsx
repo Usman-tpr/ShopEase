@@ -1,31 +1,22 @@
-import React,{useState,useEffect} from 'react'
+import React from 'react'
+import Carasoule from '../Components/carasoule/Carasoule'
 
 const Home = () => {
-  const picsArray = ['/assets/images/landscape.jpg','/assets/images/download.jpeg','/assets/images/sunset.jpg'];
-  const [changeImage,setChangeImage] = useState(0);
-    
-const handleChange = () =>{
-       if(changeImage>2){
-        setChangeImage(0);
-       }
-       const index = changeImage+1;
-      
-       console.log(changeImage)
-     console.log('testing')
-     setTimeout(()=>{
-      
-      setChangeImage(index)
-     },[3000])
-  }
-// handleChange()
 
 
   return (
-  <>
+  <>  
+        
         <div className='container'>
-          <div className="row">
-            <div className="col-sm-6">
-              <img src={picsArray[changeImage]} alt="" />
+          <div className="row mt-5">
+            <div className="col-sm-2">
+                 <p>hi</p>
+                 <p>hi</p>
+                 <p>hi</p>
+                 <p>hi</p>
+            </div>
+            <div className="col-sm-10">
+            <Carasoule />
             </div>
           </div>
 

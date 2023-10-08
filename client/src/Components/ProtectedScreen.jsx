@@ -33,7 +33,7 @@ const ProtectedScreen = ({children}) => {
   return (
    user && (
       <div>
-       <Header />
+       <Header user={user}/>
          <div>
             {children}
          </div>
