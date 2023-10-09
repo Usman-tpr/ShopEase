@@ -1,3 +1,6 @@
+*{
+    font-family: 'Poppins';
+}
 .custom-input{
     border: none;
     border-bottom: 2px solid black !important;
@@ -21,3 +24,32 @@ box-shadow: 0px 0px 1px rgba(3, 7, 18, 0.01),
 1px 1px 44px rgba(3, 7, 18, 0.08);
 
  }
+
+ /* for postedProducts */
+ .ant-tabs-tab {
+    font-size: 15px !important;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-family: 'Poppins';
+    color: var(--theme-color) !important;
+  }
+
+ .ant-btn {
+    border-color: var(--theme-color) !important;
+    color: var(--theme-color);
+}
+ .ant-btn-hover {
+    border-color: var(--theme-color) !important;
+    color: var(--theme-color) !important;
+}
+.form-control:focus {
+    border-color: var(--theme-color);
+    box-shadow: none; 
+}
+.form-check-input:focus {
+    box-shadow: none; 
+}
+label{
+    font-size: bold;
+    font-family: 'Poppins';
+}

@@ -19,6 +19,9 @@ const ProtectedScreen = ({children}) => {
       console.log('enter to success');      
         setUser(response.data)
         
+     } else{
+   
+      navigate('/login')
      }
     
         } catch (error) {
