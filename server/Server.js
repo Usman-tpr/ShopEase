@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const userRoute = require('./routes/userRoute'); // Remove the ".js" extension
+const userRoute = require('./routes/userRoute');
+const productRoute = require('./routes/productRoute');
 const cors = require('cors')
 const app = express();
 // const uri = "mongodb+srv://usmantpr:test123@cluster0.ldzfaxt.mongodb.net/?retryWrites=true&w=majority";
@@ -8,6 +9,7 @@ const a='mongodb://usmantpr:test123@ac-hfotgaj-shard-00-00.ldzfaxt.mongodb.net:2
 app.use(express.json())
 app.use(cors())
 app.use('/auth',userRoute);
+app.use('products',productRoute)
 app.listen(5000,async()=>{
         console.log('connected at 5000')
 })
