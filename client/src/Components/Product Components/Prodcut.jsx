@@ -1,7 +1,8 @@
-import { Button } from 'antd'
+import { Button,message } from 'antd'
 import React, { useState } from 'react'
-
+import axios from 'axios'
 const Prodcut = () => {
+    const [modalNone,setModalNone] = useState('')
     const options = ['Select','Mobile','Laptops','cars','bikes','Homies','chargers','accessories','electronics','other'];
 const [formData,setFormData] = useState({
     name:"",
@@ -29,22 +30,37 @@ setFormData({
 });
 
 }
-const handleSubmitForm = (event) => {
+const handleSubmitForm = async(event) => {
     event.preventDefault();
-    console.log(formData);
-    setFormData({
-        name: "",
-        desc: "",
-        price: "",
-        category: "",
-        bill: false,
-        box: false,
-        warranty: false,
-      });
+     const response = await axios.post('http://localhost:5000/post-product',formData)
+     console.log(response)
+     if(response.data.success){
+        message.success(response.data.message)
+        console.log(response.product)
+        setFormData({
+            name: "",
+            desc: "",
+            price: "",
+            category: "",
+            bill: false,
+            box: false,
+            warranty: false,
+          });
+        //  setModalNone('d-none')
+        const modal = document.getElementById('exampleModal');
+        if (modal) {
+          modal.classList.add('d-none');
+          modal.parentElement.classList.add('d-none');
+        }
+     }
+     else{
+        message.error(response.data.message)
+     }
+    
 }
     return (
         <>
-            <div className="container">
+            <div className="container ">
                 <div className="row d-flex justify-content-between">
                     <div className='col-10'>form</div>
                     <div className='col-2'>
@@ -52,8 +68,9 @@ const handleSubmitForm = (event) => {
                     </div>
                 </div>
             </div>
-            <div class="modal fade center" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div className='d'>
+            <div class={`modal  fade center  ${modalNone} `} id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg" >
                     <div class="modal-content">
                         <div class="modal-header">
                             <h1 class="modal-title fs-5 fw-bold theme-color" id="exampleModalLabel">Product Details</h1>
@@ -115,6 +132,7 @@ const handleSubmitForm = (event) => {
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </>
     )
