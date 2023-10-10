@@ -9,7 +9,7 @@ const a='mongodb://usmantpr:test123@ac-hfotgaj-shard-00-00.ldzfaxt.mongodb.net:2
 app.use(express.json())
 app.use(cors())
 app.use('/auth',userRoute);
-app.use('products',productRoute)
+app.use(productRoute)
 app.listen(5000,async()=>{
         console.log('connected at 5000')
 })
